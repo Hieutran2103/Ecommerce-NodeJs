@@ -37,5 +37,6 @@
   },
   "engines": {
     "node": "14.x"
-  }
+  },
+  "proxy": "https://ecommerce-nodejs-aqa9.onrender.com"
 }
