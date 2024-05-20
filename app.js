@@ -31,7 +31,7 @@ const cookieParser = require("cookie-parser");
 const helmet = require("helmet");
 const cors = require("cors");
 const corsOptions = {
-  origin: "https://ecommerce1-reactjs.netlify.app/",
+  origin: "https://ecommerce1-reactjs.netlify.app",
   credentials: true,
 };
 app.use(express.static("./public"));
