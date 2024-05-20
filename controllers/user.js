@@ -20,6 +20,7 @@ const getAllUsers = async (req, res) => {
     count: users.length,
   });
 };
+
 const getSingleUser = async (req, res) => {
   const user = await UserSchema.findOne({ _id: req.params.id }).select(
     "-password"
