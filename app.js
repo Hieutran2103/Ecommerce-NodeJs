@@ -40,6 +40,20 @@ app.use(express.json());
 app.use(helmet());
 // app.use(xss());
 app.use(cookieParser(process.env.JWT_SECRET));
+
+app.use(
+  session({
+    secret: process.env.JWT_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      secure: true,
+      httpOnly: true,
+      sameSite: "none",
+    },
+  })
+);
+
 app.use(fileUpload({ useTempFiles: true }));
 // routes
 app.use("/api/v1/auth", authRouter);
