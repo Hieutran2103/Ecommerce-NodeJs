@@ -2,7 +2,7 @@ require("dotenv").config();
 require("express-async-errors");
 const express = require("express");
 const app = express();
-
+const session = require("express-session");
 // Các require khác...
 const fileUpload = require("express-fileupload");
 //connectDB
