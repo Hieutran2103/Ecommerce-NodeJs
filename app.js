@@ -2,7 +2,7 @@ require("dotenv").config();
 require("express-async-errors");
 const express = require("express");
 const app = express();
-const session = require("express-session");
+
 // Các require khác...
 const fileUpload = require("express-fileupload");
 //connectDB
@@ -31,28 +31,23 @@ const cookieParser = require("cookie-parser");
 const helmet = require("helmet");
 const cors = require("cors");
 const corsOptions = {
-  origin: "https://ecommerce1-reactjs.netlify.app",
+  origin: "*",
   credentials: true,
 };
 app.use(express.static("./public"));
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: true, // Cho phép tất cả các origin truy cập
+    credentials: true, // Cho phép gửi cookie qua CORS
+  })
+);
+
 app.use(express.json());
 app.use(helmet());
 // app.use(xss());
 app.use(cookieParser(process.env.JWT_SECRET));
 
-app.use(
-  session({
-    secret: process.env.JWT_SECRET,
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-      secure: true,
-      httpOnly: true,
-      sameSite: "none",
-    },
-  })
-);
+// );
 
 app.use(fileUpload({ useTempFiles: true }));
 // routes
