@@ -31,16 +31,11 @@ const cookieParser = require("cookie-parser");
 const helmet = require("helmet");
 const cors = require("cors");
 const corsOptions = {
-  origin: "*",
+  origin: "https://ecommerce1-reactjs.netlify.app",
   credentials: true,
 };
 app.use(express.static("./public"));
-app.use(
-  cors({
-    origin: true, // Cho phép tất cả các origin truy cập
-    credentials: true, // Cho phép gửi cookie qua CORS
-  })
-);
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(helmet());
