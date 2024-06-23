@@ -33,6 +33,7 @@ const cors = require("cors");
 const corsOptions = {
   origin: "https://ecommerce1-reactjs.netlify.app",
   credentials: true,
+  optionsSuccessStatus: 200,
 };
 app.use(express.static("./public"));
 app.use(cors(corsOptions));
