@@ -34,15 +34,13 @@ const corsOptions = {
   origin: "http://localhost:5173",
   credentials: true,
 };
-app.use(express.static("./public"));
+// app.use(express.static("./public"));
 app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(helmet());
 // app.use(xss());
 app.use(cookieParser(process.env.JWT_SECRET));
-
-// );
 
 app.use(fileUpload({ useTempFiles: true }));
 // routes
